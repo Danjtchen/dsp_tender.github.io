@@ -15,8 +15,6 @@ logo        : Analytics-512.png
 assets      : {assets: ../../assets}
 --- .class #id
 
-
-
 <style type="text/css">
 body {background:grey transparent;
 }
@@ -56,7 +54,7 @@ Professional field at Data analysis and data mining
 *** =right
 
 ```{r ,out.width = "400px",echo=FALSE}
-knitr::include_graphics("/Users/Dan/Downloads/ricky.jpg")
+knitr::include_graphics("./assets/img/ricky.jpg")
 ```
 
 --- &twocol w1:60% w2:40%
@@ -81,7 +79,7 @@ Professional field at Data analysis and Big data analysis
 *** =right
 
 ```{r ,out.width = "400px",echo=FALSE}
-knitr::include_graphics("/Users/Dan/Downloads/dan.jpg")
+knitr::include_graphics("./assets/img/dan.jpg")
 ```
 
 --- .segue bg:grey
@@ -93,7 +91,7 @@ knitr::include_graphics("/Users/Dan/Downloads/dan.jpg")
 ## 黑名單分析
 
 ```{r ,out.width = "800px",echo=FALSE,fig.align='center'}
-knitr::include_graphics("/Users/Dan/Downloads/tender_flo.png")
+knitr::include_graphics("./assets/img/tender_flo.png")
 ```
 
 ---
@@ -101,7 +99,7 @@ knitr::include_graphics("/Users/Dan/Downloads/tender_flo.png")
 ## 黑名單分析
 
 ```{r, 'datatable1', echo=FALSE, warning=FALSE,message=FALSE,cache=FALSE,results='asis'}
-cat('<iframe src="/Users/Dan/Dan/dt1.html" width=100% height=100% allowtransparency="true"> </iframe>')
+cat('<iframe src=""dt1.html" width=100% height=100% allowtransparency="true"> </iframe>')
 ```
 
 --- .segue bg:grey
@@ -120,7 +118,7 @@ cat('<iframe src="/Users/Dan/Dan/dt1.html" width=100% height=100% allowtranspare
 *** =right
 
 ```{r ,out.width = "350px",echo=FALSE}
-knitr::include_graphics("/Users/Dan/Dan/assets/img/tender.png")
+knitr::include_graphics("./assets/img/tender.png")
 ```
 
 --- 

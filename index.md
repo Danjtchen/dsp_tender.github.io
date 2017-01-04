@@ -15,8 +15,6 @@ logo        : Analytics-512.png
 assets      : {assets: ../../assets}
 --- .class #id
 
-
-
 <style type="text/css">
 body {background:grey transparent;
 }
@@ -55,7 +53,7 @@ Professional field at Data analysis and data mining
 
 *** =right
 
-<img src="/Users/Dan/Downloads/ricky.jpg" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" width="400px" />
+<img src="./assets/img/ricky.jpg" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" width="400px" />
 
 --- &twocol w1:60% w2:40%
 
@@ -78,7 +76,7 @@ Professional field at Data analysis and Big data analysis
   
 *** =right
 
-<img src="/Users/Dan/Downloads/dan.jpg" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="400px" />
+<img src="./assets/img/dan.jpg" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="400px" />
 
 --- .segue bg:grey
 
@@ -88,13 +86,13 @@ Professional field at Data analysis and Big data analysis
 
 ## 黑名單分析
 
-<img src="/Users/Dan/Downloads/tender_flo.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" width="800px" style="display: block; margin: auto;" />
+<img src="./assets/img/tender_flo.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" width="800px" style="display: block; margin: auto;" />
 
 ---
 
 ## 黑名單分析
 
-<iframe src="/Users/Dan/Dan/dt1.html" width=100% height=100% allowtransparency="true"> </iframe>
+<iframe src=""dt1.html" width=100% height=100% allowtransparency="true"> </iframe>
 
 --- .segue bg:grey
 
@@ -111,7 +109,7 @@ Professional field at Data analysis and Big data analysis
 
 *** =right
 
-<img src="/Users/Dan/Dan/assets/img/tender.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="350px" />
+<img src="./assets/img/tender.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="350px" />
 
 --- 
 
