@@ -92,7 +92,7 @@ Professional field at Data analysis and Big data analysis
 
 ## 黑名單分析
 
-<iframe src=""dt1.html" width=100% height=100% allowtransparency="true"> </iframe>
+<iframe src="dt1.html" width=100% height=100% allowtransparency="true"> </iframe>
 
 --- .segue bg:grey
 
@@ -109,7 +109,7 @@ Professional field at Data analysis and Big data analysis
 
 *** =right
 
-<img src="./assets/img/tender.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="350px" />
+<img src="./assets/img/tender.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="500px" />
 
 --- 
 
@@ -131,7 +131,7 @@ Professional field at Data analysis and Big data analysis
 
 
 
-<iframe src="/Users/Dan/Dan/wp.html" width=100% height=10% allowtransparency="true"> </iframe>
+<iframe src="wp.html" width=100% height=10% allowtransparency="true"> </iframe>
   
 ---
 
@@ -143,12 +143,12 @@ Professional field at Data analysis and Big data analysis
 
 
 
-<iframe src="/Users/Dan/Dan/wp1.html" width=100% height=10% allowtransparency="true"> </iframe>
+<iframe src="wp1.html" width=100% height=10% allowtransparency="true"> </iframe>
 
 *** =right  
   
 
-<iframe src="/Users/Dan/Dan/wp2.html" width=100% height=10% allowtransparency="true"> </iframe>
+<iframe src="wp2.html" width=100% height=10% allowtransparency="true"> </iframe>
 
 ---
 

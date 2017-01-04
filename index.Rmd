@@ -99,7 +99,7 @@ knitr::include_graphics("./assets/img/tender_flo.png")
 ## 黑名單分析
 
 ```{r, 'datatable1', echo=FALSE, warning=FALSE,message=FALSE,cache=FALSE,results='asis'}
-cat('<iframe src=""dt1.html" width=100% height=100% allowtransparency="true"> </iframe>')
+cat('<iframe src="dt1.html" width=100% height=100% allowtransparency="true"> </iframe>')
 ```
 
 --- .segue bg:grey
@@ -117,7 +117,7 @@ cat('<iframe src=""dt1.html" width=100% height=100% allowtransparency="true"> </
 
 *** =right
 
-```{r ,out.width = "350px",echo=FALSE}
+```{r ,out.width = "500px",echo=FALSE}
 knitr::include_graphics("./assets/img/tender.png")
 ```
 
@@ -161,7 +161,7 @@ htmlwidgets::saveWidget(as.widget(p), "wp.html")
 ```
 
 ```{r wp, echo=FALSE, warning=FALSE, cache=FALSE, results='asis'}
-cat('<iframe src="/Users/Dan/Dan/wp.html" width=100% height=10% allowtransparency="true"> </iframe>')
+cat('<iframe src="wp.html" width=100% height=10% allowtransparency="true"> </iframe>')
 ```
   
 ---
@@ -189,7 +189,7 @@ htmlwidgets::saveWidget(as.widget(p), "wp1.html")
 ```
 
 ```{r , echo=FALSE, warning=FALSE, cache=FALSE, results='asis'}
-cat('<iframe src="/Users/Dan/Dan/wp1.html" width=100% height=10% allowtransparency="true"> </iframe>')
+cat('<iframe src="wp1.html" width=100% height=10% allowtransparency="true"> </iframe>')
 ```
 
 *** =right  
@@ -202,7 +202,7 @@ p1 <- ggplotly(g1) %>% layout(showlegend = FALSE)
 htmlwidgets::saveWidget(as.widget(p1), "wp2.html")
 ```
 ```{r wp2, echo=FALSE, warning=FALSE, cache=FALSE, results='asis'}
-cat('<iframe src="/Users/Dan/Dan/wp2.html" width=100% height=10% allowtransparency="true"> </iframe>')
+cat('<iframe src="wp2.html" width=100% height=10% allowtransparency="true"> </iframe>')
 ```
 
 ---
