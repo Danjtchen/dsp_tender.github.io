@@ -1,0 +1,300 @@
+---
+title       : 標案天眼通
+subtitle    : DSP data chanllenge
+author      : Dan & Ricky
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [mathjax, quiz, bootstrap, interactive] 
+# {mathjax, quiz, bootstrap}
+ext_widgets : {rCharts: [libraries/nvd3, libraries/leaflet, libraries/dygraphs]}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+logo        : Analytics-512.png
+assets      : {assets: ../../assets}
+--- .class #id
+
+
+
+<style type="text/css">
+body {background:grey transparent;
+}
+</style>
+
+## Outline
+
+1. Introduction
+
+2. Blacklist
+
+3. Tender Q (Company)
+
+4. Tender Q (Gov)
+
+5. Demo
+
+--- .segue bg:grey
+
+# 那就先來自我介紹吧～
+
+--- &twocol w1:60% w2:40%
+
+## Ricky  
+
+Professional field at Data analysis and data mining
+
+*** =left
+
+- NTUST  
+
+- Internship: Chocolan  
+
+- Current works :   
+  金寶 AI engineer 
+
+*** =right
+
+```{r ,out.width = "400px",echo=FALSE}
+knitr::include_graphics("/Users/Dan/Downloads/ricky.jpg")
+```
+
+--- &twocol w1:60% w2:40%
+
+## Dan   
+
+Professional field at Data analysis and Big data analysis
+
+*** =left
+
+
+- NTUST  
+  
+  
+- Internship : III / Micron / kkbox / Yuanta    
+  
+  
+- Current works :   
+  Telecommunications' Big data engineer  
+  
+  
+*** =right
+
+```{r ,out.width = "400px",echo=FALSE}
+knitr::include_graphics("/Users/Dan/Downloads/dan.jpg")
+```
+
+--- .segue bg:grey
+
+# 黑名單分析
+
+---
+
+## 黑名單分析
+
+```{r ,out.width = "800px",echo=FALSE,fig.align='center'}
+knitr::include_graphics("/Users/Dan/Downloads/tender_flo.png")
+```
+
+---
+
+## 黑名單分析
+
+```{r, 'datatable1', echo=FALSE, warning=FALSE,message=FALSE,cache=FALSE,results='asis'}
+cat('<iframe src="/Users/Dan/Dan/dt1.html" width=100% height=100% allowtransparency="true"> </iframe>')
+```
+
+--- .segue bg:grey
+
+# 決標標案分析 - 廠商
+
+--- &twocol w1:60% w2:40%
+
+## 決標標案分析 - 廠商
+*** =left
+   
+- Data: 決標 -> 撤銷公告    
+  
+- Time: 2014 ~ 2016  
+
+*** =right
+
+```{r ,out.width = "350px",echo=FALSE}
+knitr::include_graphics("/Users/Dan/Dan/assets/img/tender.png")
+```
+
+--- 
+
+## What we see at this data
+  
+從 "撤銷公告原因及依據法條" 可看到一些有趣的事情
+  
+- 廠商問題:
+撤銷公告原因及依據法條   
+  
+- 本案得標廠商「XXXX」未依規定履行契約，且經本局數次聯絡皆表示無履約意願   
+- XXXX有限公司得標後拒不簽約   
+- 廠商之信用證明逾期   
+- XXXX公司登記證已於105年4月13日註銷，應撤銷決標、終止契約或解除契約，並得追償損失。   
+
+--- 
+
+## Top 5 機關遭雷
+
+```{r ,echo=FALSE,warning=FALSE,message=FALSE}
+library(plyr)
+library(dplyr)
+library(plotly)
+library(ggplot2)
+library(gridExtra)
+library(grid)
+
+company <- read.csv('/Users/Dan/Desktop/company_analysis.csv')
+company <- mutate(company,count=1)
+at <- ddply(company,~機關名稱,summarise,sum=sum(count))
+at <- at[order(-at$sum),]
+at <- at[1:5,]
+thm <- function() theme(text=element_text(size = 15, family = "STHeiti"))
+g <-ggplot(at, aes(x=reorder(機關名稱,-sum), y=sum, fill=機關名稱))+ geom_bar(stat="identity")+
+      xlab("Company")+theme_grey(base_family="STHeiti")+
+      theme(axis.text.x=element_text(angle = 15,hjust = 1))+ggtitle("Top 5 company")
+p <- ggplotly(g)
+htmlwidgets::saveWidget(as.widget(p), "wp.html")
+```
+
+```{r wp, echo=FALSE, warning=FALSE, cache=FALSE, results='asis'}
+cat('<iframe src="/Users/Dan/Dan/wp.html" width=100% height=10% allowtransparency="true"> </iframe>')
+```
+  
+---
+
+--- &twocol
+
+## 決標方式 ＆ 類別
+
+*** =left
+
+```{r ,echo=FALSE,warning=FALSE,message=FALSE}
+way <- ddply(company,~決標方式,summarise,sum=sum(count))
+company$標的分類 <- substr(company$標的分類,start=2,stop=4)
+class <- ddply(company,~標的分類,summarise,sum=sum(count))
+at <- at[order(-at$sum),]
+at <- at[1:5,]
+thm <- function() theme(text=element_text(size = 15, family = "STHeiti"))
+g <-ggplot(class, aes(x=reorder(標的分類,-sum), y=sum, fill=標的分類))+ geom_bar(stat="identity")+
+      xlab("標的分類")+theme_grey(base_family="STHeiti")+
+      theme(axis.text.x=element_text(angle = 15,hjust = 1))+ggtitle("標的分類 Count")+ guides(fill=FALSE)
+p <- ggplotly(g) %>% layout(showlegend = FALSE)
+
+
+htmlwidgets::saveWidget(as.widget(p), "wp1.html")
+```
+
+```{r , echo=FALSE, warning=FALSE, cache=FALSE, results='asis'}
+cat('<iframe src="/Users/Dan/Dan/wp1.html" width=100% height=10% allowtransparency="true"> </iframe>')
+```
+
+*** =right  
+  
+```{r ,echo=FALSE,warning=FALSE,message=FALSE}
+g1 <-ggplot(way, aes(x=reorder(決標方式,-sum), y=sum, fill=決標方式))+ geom_bar(stat="identity")+
+      xlab("決標方式")+theme_grey(base_family="STHeiti")+
+      theme(axis.text.x=element_text(angle = 15,hjust = 1))+ggtitle("決標方式 Count")
+p1 <- ggplotly(g1) %>% layout(showlegend = FALSE)
+htmlwidgets::saveWidget(as.widget(p1), "wp2.html")
+```
+```{r wp2, echo=FALSE, warning=FALSE, cache=FALSE, results='asis'}
+cat('<iframe src="/Users/Dan/Dan/wp2.html" width=100% height=10% allowtransparency="true"> </iframe>')
+```
+
+---
+
+## 被雷價位
+
+
+整體決標金額
+```{r ,echo=FALSE,warning=FALSE,message=FALSE}
+record <- read.csv('/Users/Dan/Desktop/company_record.csv')
+record <- record[complete.cases(record),]
+library(highcharter)
+company$總決標金額 <- as.character(as.factor(company$總決標金額))
+company$總決標金額 <- gsub('元',replacement="",company$總決標金額)
+company$總決標金額 <- gsub(',', replacement='',company$總決標金額)
+company$總決標金額 <- as.numeric(as.character(company$總決標金額))
+company <- mutate(company,type='Bug')
+
+record$總決標金額 <- as.character(as.factor(record$總決標金額))
+record$總決標金額 <- gsub('元',replacement="",record$總決標金額)
+record$總決標金額 <- gsub(',', replacement='',record$總決標金額)
+record$總決標金額 <- as.numeric(as.character(record$總決標金額))
+record <- record[complete.cases(record),]
+
+record <- mutate(record,type='ALL')
+
+options(scipen=999)
+summary(record$總決標金額)
+
+```
+有問題決標金額
+```{r ,echo=FALSE,warning=FALSE,message=FALSE}
+summary(company$總決標金額)
+```
+
+
+--- 
+
+## Boxplot
+
+母體介於 140萬至30萬之間
+大多較有問題的標案大多range僅在 60萬到20萬之間
+  
+```{r ,echo=FALSE,warning=FALSE,message=FALSE, fig.align='center'}
+
+bp <- ggplot(data=company, aes(x=type, y=總決標金額)) + geom_boxplot()+theme_grey(base_family="STHeiti")
+bp
+
+```
+
+--- .segue bg:grey
+
+# 決標標案分析 - 政府  
+
+---
+
+## 政府問題
+
+- 大多為資料填錯導致流標
+
+- 尤其是'案號'誤繕等
+
+- 是否效率或是SOP等需要改善
+
+---
+
+## 單位填錯排名
+
+國防部為大戶 填錯 大戶 !!!
+(P.S 拜託別查我們水表)
+
+```{r ,echo=FALSE,warning=FALSE,message=FALSE, fig.align='center'}
+
+gov <- read.csv('/Users/Dan/Desktop/gov.csv')
+gov <- mutate(gov,count=1)
+way <- ddply(gov,~機關名稱,summarise,sum=sum(count))
+way <- way[order(-way$sum),]
+way <- way[1:5,]
+thm <- function() theme(text=element_text(size = 15, family = "STHeiti"))
+g <-ggplot(way, aes(x=reorder(機關名稱,-sum), y=sum, fill=機關名稱))+ geom_bar(stat="identity")+
+      xlab("機關名稱")+theme_grey(base_family="STHeiti")+
+      theme(axis.text.x=element_text(angle = 15,hjust = 1))+ggtitle("機關名稱 Count")
+g
+```
+
+
+--- .segue bg:grey
+
+# Demo
+
+
+
+
