@@ -26,9 +26,9 @@ body {background:grey transparent;
 
 2. Blacklist
 
-3. Tender Q (Company)
+3. Tender Question on Company
 
-4. Tender Q (Gov)
+4. Tender Question on Government
 
 5. Demo
 
@@ -46,10 +46,14 @@ Professional field at Data analysis and data mining
 
 - NTUST  
 
-- Internship: Chocolan  
+- Internship: 
+  Chocolab  : 
+   data ETL  
+   report automation  
+   recommender system  
 
 - Current works :   
-  金寶 AI engineer 
+  Kinpo AI engineer 
 
 *** =right
 
@@ -67,7 +71,15 @@ Professional field at Data analysis and Big data analysis
 - NTUST  
   
   
-- Internship : III / Micron / kkbox / Yuanta    
+- Internship : 
+  III  
+    Sentiment Analysis
+  Micron  
+    Using Social Network on QC 
+  kkbox  
+    Crawler , ELK
+  Yuanta      
+    Predict futures
   
   
 - Current works :   
@@ -109,11 +121,11 @@ Professional field at Data analysis and Big data analysis
 
 *** =right
 
-<img src="./assets/img/tender.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="500px" />
+<img src="./assets/img/tender.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="800px" />
 
 --- 
 
-## What we see at this data
+## 撤銷公告問題
   
 從 "撤銷公告原因及依據法條" 可看到一些有趣的事情
   
@@ -150,33 +162,14 @@ Professional field at Data analysis and Big data analysis
 
 <iframe src="wp2.html" width=100% height=10% allowtransparency="true"> </iframe>
 
----
-
-## 被雷價位
-
-
-整體決標金額
-
-```
-##        Min.     1st Qu.      Median        Mean     3rd Qu.        Max. 
-##           0      310000      777800    14570000     2425000 79960000000
-```
-有問題決標金額
-
-```
-##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
-##     8000   223600   355000   773900   697800 14400000
-```
-
-
 --- 
 
-## Boxplot
+## 被雷金額
 
-母體介於 140萬至30萬之間
-大多較有問題的標案大多range僅在 60萬到20萬之間
+母體介於 30萬至 140萬之間  
+大多較有問題的標案大多range僅在 20萬到60萬之間  
   
-<img src="figure/unnamed-chunk-11-1.png" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" style="display: block; margin: auto;" />
+<img src="figure/unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" style="display: block; margin: auto;" />
 
 --- .segue bg:grey
 
@@ -196,11 +189,72 @@ Professional field at Data analysis and Big data analysis
 
 ## 單位填錯排名
 
-國防部為大戶 填錯 大戶 !!!
-(P.S 拜託別查我們水表)
+仍為台灣大學以及中國石油！！！  
 
-<img src="figure/unnamed-chunk-12-1.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" style="display: block; margin: auto;" />
+<img src="figure/unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" style="display: block; margin: auto;" />
 
+--- &twocol
+
+## 決標方式 ＆ 類別
+
+*** =left
+
+
+
+<iframe src="wp4.html" width=100% height=10% allowtransparency="true"> </iframe>
+
+*** =right  
+  
+
+<iframe src="wp5.html" width=100% height=10% allowtransparency="true"> </iframe>
+
+---
+
+## 流廢標價位
+
+- 金額  
+  
+因失誤導致流廢標金額約在20萬到200萬之間，最高有到16億  
+  
+<img src="figure/unnamed-chunk-14-1.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" style="display: block; margin: auto;" />
+
+
+---
+
+## Summary
+
+- 廠商失能  
+  
+  較多出現於，財務類。金額約於20萬～60萬  
+  
+  -> 可能因金額較少，所以在監督上較少著墨。  
+  
+- 政府失能  
+  
+  在分析後我們覺得，應是常態性的失誤。
+  
+  -> 所有分配皆接近母體。可能在於SOP或是資料填寫上需要有一些防呆機制。  
+    
+
+--- .segue bg:grey
+
+# Other things...... 
+
+---  
+   
+## 接案王
+
+- 決標 -> 決標公告
+<img src="figure/unnamed-chunk-15-1.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" style="display: block; margin: auto;" />
+
+---
+
+## 大熱門
+
+- 決標 -> 決標公告  
+hot = 投標公司比率  
+(勞務類&最有利標)
+<img src="figure/unnamed-chunk-16-1.png" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" style="display: block; margin: auto;" />
 
 --- .segue bg:grey
 

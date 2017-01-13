@@ -26,9 +26,9 @@ body {background:grey transparent;
 
 2. Blacklist
 
-3. Tender Q (Company)
+3. Tender Question on Company
 
-4. Tender Q (Gov)
+4. Tender Question on Government
 
 5. Demo
 
@@ -46,10 +46,14 @@ Professional field at Data analysis and data mining
 
 - NTUST  
 
-- Internship: Chocolan  
+- Internship: 
+  Chocolab  : 
+   data ETL  
+   report automation  
+   recommender system  
 
 - Current works :   
-  金寶 AI engineer 
+  Kinpo AI engineer 
 
 *** =right
 
@@ -69,7 +73,15 @@ Professional field at Data analysis and Big data analysis
 - NTUST  
   
   
-- Internship : III / Micron / kkbox / Yuanta    
+- Internship : 
+  III  
+    Sentiment Analysis
+  Micron  
+    Using Social Network on QC 
+  kkbox  
+    Crawler , ELK
+  Yuanta      
+    Predict futures
   
   
 - Current works :   
@@ -117,13 +129,13 @@ cat('<iframe src="dt1.html" width=100% height=100% allowtransparency="true"> </i
 
 *** =right
 
-```{r ,out.width = "500px",echo=FALSE}
+```{r ,out.width = "800px",echo=FALSE}
 knitr::include_graphics("./assets/img/tender.png")
 ```
 
 --- 
 
-## What we see at this data
+## 撤銷公告問題
   
 從 "撤銷公告原因及依據法條" 可看到一些有趣的事情
   
@@ -205,48 +217,21 @@ htmlwidgets::saveWidget(as.widget(p1), "wp2.html")
 cat('<iframe src="wp2.html" width=100% height=10% allowtransparency="true"> </iframe>')
 ```
 
----
+--- 
 
-## 被雷價位
+## 被雷金額
 
+母體介於 30萬至 140萬之間  
+大多較有問題的標案大多range僅在 20萬到60萬之間  
+  
+```{r ,echo=FALSE,warning=FALSE,message=FALSE, fig.align='center'}
+company <- company[complete.cases(company),]
 
-整體決標金額
-```{r ,echo=FALSE,warning=FALSE,message=FALSE}
-record <- read.csv('/Users/Dan/Desktop/company_record.csv')
-record <- record[complete.cases(record),]
-library(highcharter)
 company$總決標金額 <- as.character(as.factor(company$總決標金額))
 company$總決標金額 <- gsub('元',replacement="",company$總決標金額)
 company$總決標金額 <- gsub(',', replacement='',company$總決標金額)
 company$總決標金額 <- as.numeric(as.character(company$總決標金額))
 company <- mutate(company,type='Bug')
-
-record$總決標金額 <- as.character(as.factor(record$總決標金額))
-record$總決標金額 <- gsub('元',replacement="",record$總決標金額)
-record$總決標金額 <- gsub(',', replacement='',record$總決標金額)
-record$總決標金額 <- as.numeric(as.character(record$總決標金額))
-record <- record[complete.cases(record),]
-
-record <- mutate(record,type='ALL')
-
-options(scipen=999)
-summary(record$總決標金額)
-
-```
-有問題決標金額
-```{r ,echo=FALSE,warning=FALSE,message=FALSE}
-summary(company$總決標金額)
-```
-
-
---- 
-
-## Boxplot
-
-母體介於 140萬至30萬之間
-大多較有問題的標案大多range僅在 60萬到20萬之間
-  
-```{r ,echo=FALSE,warning=FALSE,message=FALSE, fig.align='center'}
 
 bp <- ggplot(data=company, aes(x=type, y=總決標金額)) + geom_boxplot()+theme_grey(base_family="STHeiti")
 bp
@@ -271,8 +256,7 @@ bp
 
 ## 單位填錯排名
 
-國防部為大戶 填錯 大戶 !!!
-(P.S 拜託別查我們水表)
+仍為台灣大學以及中國石油！！！  
 
 ```{r ,echo=FALSE,warning=FALSE,message=FALSE, fig.align='center'}
 
@@ -288,6 +272,129 @@ g <-ggplot(way, aes(x=reorder(機關名稱,-sum), y=sum, fill=機關名稱))+ ge
 g
 ```
 
+--- &twocol
+
+## 決標方式 ＆ 類別
+
+*** =left
+
+```{r ,echo=FALSE,warning=FALSE,message=FALSE}
+way <- ddply(gov,~決標方式,summarise,sum=sum(count))
+gov$標的分類 <- substr(gov$標的分類,start=2,stop=4)
+class <- ddply(gov,~標的分類,summarise,sum=sum(count))
+class <- class[order(-class$sum),]
+thm <- function() theme(text=element_text(size = 15, family = "STHeiti"))
+g <-ggplot(class, aes(x=reorder(標的分類,-sum), y=sum, fill=標的分類))+ geom_bar(stat="identity")+
+      xlab("標的分類")+theme_grey(base_family="STHeiti")+
+      theme(axis.text.x=element_text(angle = 15,hjust = 1))+ggtitle("標的分類 Count")+ guides(fill=FALSE)
+p <- ggplotly(g) %>% layout(showlegend = FALSE)
+
+
+htmlwidgets::saveWidget(as.widget(p), "wp4.html")
+```
+
+```{r , echo=FALSE, warning=FALSE, cache=FALSE, results='asis'}
+cat('<iframe src="wp4.html" width=100% height=10% allowtransparency="true"> </iframe>')
+```
+
+*** =right  
+  
+```{r ,echo=FALSE,warning=FALSE,message=FALSE}
+g1 <-ggplot(way, aes(x=reorder(決標方式,-sum), y=sum, fill=決標方式))+ geom_bar(stat="identity")+
+      xlab("決標方式")+theme_grey(base_family="STHeiti")+
+      theme(axis.text.x=element_text(angle = 15,hjust = 1))+ggtitle("決標方式 Count")
+p1 <- ggplotly(g1) %>% layout(showlegend = FALSE)
+htmlwidgets::saveWidget(as.widget(p1), "wp5.html")
+```
+```{r w, echo=FALSE, warning=FALSE, cache=FALSE, results='asis'}
+cat('<iframe src="wp5.html" width=100% height=10% allowtransparency="true"> </iframe>')
+```
+
+---
+
+## 流廢標價位
+
+- 金額  
+  
+因失誤導致流廢標金額約在20萬到200萬之間，最高有到16億  
+  
+```{r ,echo=FALSE,warning=FALSE,message=FALSE,fig.align='center'}
+gov <- gov[complete.cases(gov),]
+
+gov$總決標金額 <- as.character(as.factor(gov$總決標金額))
+gov$總決標金額 <- gsub('元',replacement="",gov$總決標金額)
+gov$總決標金額 <- gsub(',', replacement='',gov$總決標金額)
+gov$總決標金額 <- as.numeric(as.character(gov$總決標金額))
+gov <- mutate(gov,type='Bug')
+
+bp <- ggplot(data=gov, aes(x=type, y=總決標金額)) + geom_boxplot()+theme_grey(base_family="STHeiti")
+bp
+```
+
+
+---
+
+## Summary
+
+- 廠商失能  
+  
+  較多出現於，財務類。金額約於20萬～60萬  
+  
+  -> 可能因金額較少，所以在監督上較少著墨。  
+  
+- 政府失能  
+  
+  在分析後我們覺得，應是常態性的失誤。
+  
+  -> 所有分配皆接近母體。可能在於SOP或是資料填寫上需要有一些防呆機制。  
+    
+
+--- .segue bg:grey
+
+# Other things...... 
+
+---  
+   
+## 接案王
+
+- 決標 -> 決標公告
+```{r ,echo=FALSE,warning=FALSE,message=FALSE,fig.align='center'}
+company_win <- read.csv("/Users/Dan/Desktop/company_final.csv")
+company_win <- mutate(company_win,count=1)
+win<- ddply(company_win,~投標公司,summarise,sum=sum(count))
+win <- win[order(-win$sum),]
+win <- win[1:5,]
+g1 <-ggplot(win, aes(x=reorder(投標公司,-sum), y=sum, fill=投標公司))+ geom_bar(stat="identity")+
+      xlab("投標公司")+theme_grey(base_family="STHeiti")+
+      theme(axis.text.x=element_text(angle = 15,hjust = 1))+ggtitle("得標公司 Count")
+g1
+```
+
+---
+
+## 大熱門
+
+- 決標 -> 決標公告  
+hot = 投標公司比率  
+(勞務類&最有利標)
+```{r ,echo=FALSE,warning=FALSE,message=FALSE,fig.align='center'}
+company_win <- read.csv("/Users/Dan/Desktop/company_final.csv")
+company_win <- mutate(company_win,count=1)
+company_win$標的分類 <- substr(company_win$標的分類,start=2,stop=4)
+win<- ddply(company_win,~機關名稱+標的分類+決標方式,summarise,sum=sum(count))
+ag <- ddply(company_win,~機關名稱+標的分類+決標方式,summarise,sum=sum(投標公司數))
+win <- cbind(win,ag[4]) 
+win <- subset(win,win$機關名稱!="")
+win <- mutate(win,hot=win[,5]/win[,4])
+win <- subset(win,win$sum>1&win$標的分類=='勞務類'&win$決標方式=='準用最有利標')
+
+win <- win[order(-win$hot),]
+win <- win[1:5,]
+g1 <-ggplot(win, aes(x=reorder(機關名稱,-hot), y=hot, fill=機關名稱))+ geom_bar(stat="identity")+
+      xlab("機關名稱")+theme_grey(base_family="STHeiti")+
+      theme(axis.text.x=element_text(angle = 15,hjust = 1))+ggtitle("機關名稱 Count")
+g1
+```
 
 --- .segue bg:grey
 

@@ -59,8 +59,8 @@ body {background:grey transparent;
 <ol>
 <li><p>Introduction</p></li>
 <li><p>Blacklist</p></li>
-<li><p>Tender Q (Company)</p></li>
-<li><p>Tender Q (Gov)</p></li>
+<li><p>Tender Question on Company</p></li>
+<li><p>Tender Question on Government</p></li>
 <li><p>Demo</p></li>
 </ol>
 
@@ -88,9 +88,13 @@ body {background:grey transparent;
 <div style='float:left;width:48%;' class='centered'>
   <ul>
 <li><p>NTUST  </p></li>
-<li><p>Internship: Chocolan  </p></li>
+<li><p>Internship: 
+Chocolab  : 
+data ETL<br>
+report automation<br>
+recommender system  </p></li>
 <li><p>Current works :<br>
-金寶 AI engineer </p></li>
+Kinpo AI engineer </p></li>
 </ul>
 
 </div>
@@ -112,7 +116,15 @@ body {background:grey transparent;
 <div style='float:left;width:48%;' class='centered'>
   <ul>
 <li><p>NTUST  </p></li>
-<li><p>Internship : III / Micron / kkbox / Yuanta    </p></li>
+<li><p>Internship : 
+III<br>
+Sentiment Analysis
+Micron<br>
+Using Social Network on QC 
+kkbox<br>
+Crawler , ELK
+Yuanta<br>
+Predict futures</p></li>
 <li><p>Current works :<br>
 Telecommunications&#39; Big data engineer  </p></li>
 </ul>
@@ -182,7 +194,7 @@ Telecommunications&#39; Big data engineer  </p></li>
 
 </div>
 <div style='float:right;width:48%;'>
-  <p><img src="./assets/img/tender.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="500px" /></p>
+  <p><img src="./assets/img/tender.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="800px" /></p>
 
 </div>
   </article>
@@ -191,7 +203,7 @@ Telecommunications&#39; Big data engineer  </p></li>
 
 <slide class="" id="slide-10" style="background:;">
   <hgroup>
-    <h2>What we see at this data</h2>
+    <h2>撤銷公告問題</h2>
   </hgroup>
   <article data-timings="">
     <p>從 &quot;撤銷公告原因及依據法條&quot; 可看到一些有趣的事情</p>
@@ -243,40 +255,19 @@ Telecommunications&#39; Big data engineer  </p></li>
 
 <slide class="" id="slide-13" style="background:;">
   <hgroup>
-    <h2>被雷價位</h2>
+    <h2>被雷金額</h2>
   </hgroup>
   <article data-timings="">
-    <p>整體決標金額</p>
+    <p>母體介於 30萬至 140萬之間<br>
+大多較有問題的標案大多range僅在 20萬到60萬之間  </p>
 
-<pre><code>##        Min.     1st Qu.      Median        Mean     3rd Qu.        Max. 
-##           0      310000      777800    14570000     2425000 79960000000
-</code></pre>
-
-<p>有問題決標金額</p>
-
-<pre><code>##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
-##     8000   223600   355000   773900   697800 14400000
-</code></pre>
+<p><img src="figure/unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" style="display: block; margin: auto;" /></p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-14" style="background:;">
-  <hgroup>
-    <h2>Boxplot</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>母體介於 140萬至30萬之間
-大多較有問題的標案大多range僅在 60萬到20萬之間</p>
-
-<p><img src="figure/unnamed-chunk-11-1.png" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" style="display: block; margin: auto;" /></p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="segue" id="slide-15" style="background:grey;">
+<slide class="segue" id="slide-14" style="background:grey;">
   <hgroup>
     <h1>決標標案分析 - 政府</h1>
   </hgroup>
@@ -286,7 +277,7 @@ Telecommunications&#39; Big data engineer  </p></li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-16" style="background:;">
+<slide class="" id="slide-15" style="background:;">
   <hgroup>
     <h2>政府問題</h2>
   </hgroup>
@@ -301,21 +292,117 @@ Telecommunications&#39; Big data engineer  </p></li>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="" id="slide-17" style="background:;">
+<slide class="" id="slide-16" style="background:;">
   <hgroup>
     <h2>單位填錯排名</h2>
   </hgroup>
   <article data-timings="">
-    <p>國防部為大戶 填錯 大戶 !!!
-(P.S 拜託別查我們水表)</p>
+    <p>仍為台灣大學以及中國石油！！！  </p>
 
-<p><img src="figure/unnamed-chunk-12-1.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" style="display: block; margin: auto;" /></p>
+<p><img src="figure/unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" style="display: block; margin: auto;" /></p>
 
   </article>
   <!-- Presenter Notes -->
 </slide>
 
-<slide class="segue" id="slide-18" style="background:grey;">
+<slide class="" id="slide-17" style="background:;">
+  <hgroup>
+    <h2>決標方式 ＆ 類別</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <iframe src="wp4.html" width=100% height=10% allowtransparency="true"> </iframe>
+
+</div>
+<div style='float:right;width:48%;'>
+  <iframe src="wp5.html" width=100% height=10% allowtransparency="true"> </iframe>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-18" style="background:;">
+  <hgroup>
+    <h2>流廢標價位</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>金額<br></li>
+</ul>
+
+<p>因失誤導致流廢標金額約在20萬到200萬之間，最高有到16億  </p>
+
+<p><img src="figure/unnamed-chunk-14-1.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  <hgroup>
+    <h2>Summary</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>廠商失能  </p>
+
+<p>較多出現於，財務類。金額約於20萬～60萬  </p>
+
+<p>-&gt; 可能因金額較少，所以在監督上較少著墨。  </p></li>
+<li><p>政府失能  </p>
+
+<p>在分析後我們覺得，應是常態性的失誤。</p>
+
+<p>-&gt; 所有分配皆接近母體。可能在於SOP或是資料填寫上需要有一些防呆機制。  </p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue" id="slide-20" style="background:grey;">
+  <hgroup>
+    <h1>Other things......</h1>
+  </hgroup>
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-21" style="background:;">
+  <hgroup>
+    <h2>接案王</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>決標 -&gt; 決標公告
+<img src="figure/unnamed-chunk-15-1.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" style="display: block; margin: auto;" /></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-22" style="background:;">
+  <hgroup>
+    <h2>大熱門</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>決標 -&gt; 決標公告<br>
+hot = 投標公司比率<br>
+(勞務類&amp;最有利標)
+<img src="figure/unnamed-chunk-16-1.png" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" style="display: block; margin: auto;" /></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue" id="slide-23" style="background:grey;">
   <hgroup>
     <h1>Demo</h1>
   </hgroup>
@@ -385,7 +472,7 @@ Telecommunications&#39; Big data engineer  </p></li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=10 title='What we see at this data'>
+        data-slide=10 title='撤銷公告問題'>
          10
       </a>
     </li>
@@ -403,38 +490,68 @@ Telecommunications&#39; Big data engineer  </p></li>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=13 title='被雷價位'>
+        data-slide=13 title='被雷金額'>
          13
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=14 title='Boxplot'>
+        data-slide=14 title='決標標案分析 - 政府'>
          14
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=15 title='決標標案分析 - 政府'>
+        data-slide=15 title='政府問題'>
          15
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=16 title='政府問題'>
+        data-slide=16 title='單位填錯排名'>
          16
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=17 title='單位填錯排名'>
+        data-slide=17 title='決標方式 ＆ 類別'>
          17
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=18 title='Demo'>
+        data-slide=18 title='流廢標價位'>
          18
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='Summary'>
+         19
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='Other things......'>
+         20
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='接案王'>
+         21
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='大熱門'>
+         22
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='Demo'>
+         23
       </a>
     </li>
   </ul>
